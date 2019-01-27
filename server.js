@@ -58,7 +58,7 @@ app.use(cors());
 // }
 
 app.get('/', (req, res) => {
-  res.send(database.users);
+  res.send('it is working');
 });
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) });
@@ -79,8 +79,8 @@ app.post('/imageurl', (req, res) => { image.handleApiCall(req, res, db) });
 //   // res = false
 // });
 
-app.listen(3000, () => {
-  console.log('app is running');
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`app is running on ${process.env.PORT}`);
 });
 
 console.log(process.env);
